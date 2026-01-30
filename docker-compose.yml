@@ -12,6 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   backend:
+    image: your_dockerhub_username/ai-counsellor-backend:latest
     build: ./backend
     ports:
       - "8000:8000"
@@ -23,6 +24,7 @@ services:
       - db
 
   frontend:
+    image: your_dockerhub_username/ai-counsellor-frontend:latest
     build: ./frontend
     ports:
       - "3000:3000"
