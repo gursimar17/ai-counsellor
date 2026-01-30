@@ -3,12 +3,12 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_url: str = "postgresql://postgres:admin123@localhost:5432/university_app"
+    database_url: str = "postgresql://postgres:password@db:5432/ai_counsellor"
     secret_key: str = "dev-secret-change-in-production"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
     gemini_api_key: str = "AIzaSyCtw9r4ESvIFDhyVnwSVmAwu8lbfKzJHLs"
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = "http://16.171.255.175:3000"
 
     class Config:
         env_file = ".env"
