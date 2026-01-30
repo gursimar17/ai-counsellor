@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     secret_key: str = "dev-secret-change-in-production"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
-    gemini_api_key: str = "AIzaSyCtw9r4ESvIFDhyVnwSVmAwu8lbfKzJHLs"
+    gemini_api_key: str = "AIzaSyBOxnccz8X7Wu1styD30CVfv4ZwQV-_WoA"
     cors_origins: str = "http://16.171.255.175:3000"
 
     class Config:
