@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_USER = "your_dockerhub_username"
+        DOCKER_HUB_USER = "gursimar17"
         // These match the 'image' tags we will push
         BACKEND_IMAGE  = "${DOCKER_HUB_USER}/ai-counsellor-backend:latest"
         FRONTEND_IMAGE = "${DOCKER_HUB_USER}/ai-counsellor-frontend:latest"
