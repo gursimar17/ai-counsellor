@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-heading: #0F172A;
+  --color-body: #475569;
+  --color-bg: #F8FAFC;
+  --color-card: #FFFFFF;
+  --color-primary: #4F46E5;
+  --color-primary-600: #4F46E5;
+  --color-primary-700: #4338ca;
+  --color-accent: #06B6D4;
+}
+
+body {
+  color: var(--color-body);
+  background: var(--color-bg);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Theme variants - toggle by adding the class to the <body> element. */
+.theme-clean {
+  --color-bg: #F8FAFC; /* Clean Canvas */
+  --color-card: #FFFFFF;
+  --color-primary: #4F46E5; /* Indigo-600 */
+  --color-primary-600: #4F46E5;
+  --color-primary-700: #4338ca;
+  --color-heading: #0F172A; /* Slate-900 */
+  --color-body: #475569; /* Slate-600 */
+  --color-accent: #06B6D4;
+}
+
+.theme-intel {
+  --color-bg: #F0F4FF; /* Intelligence Blue */
+  --color-card: #FFFFFF;
+  --color-primary: #2563EB; /* Blue-600 */
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
+  --color-heading: #1E3A8A; /* Blue-800 */
+  --color-body: #1F2937; /* slate-ish stronger for readability */
+  --color-accent: #06B6D4; /* Cyan-500 */
+}
+
+.theme-deep {
+  --color-bg: #0F172A; /* Deep Academic */
+  --color-card: #0B1220; /* slightly lighter card */
+  --color-primary: #7C3AED; /* Violet-500 for actions */
+  --color-primary-600: #7C3AED;
+  --color-primary-700: #6D28D9;
+  --color-heading: #FFFFFF;
+  --color-body: #CBD5E1; /* Slate-300 */
+  --color-accent: #06B6D4;
+}
+
+/* Purple theme variants */
+.theme-purple-midnight {
+  /* Midnight Nebula */
+  --color-bg: #121019; /* very dark eggplant */
+  --color-card: #14111A;
+  --color-primary: #6D28D9; /* Violet-700 */
+  --color-primary-600: #6D28D9;
+  --color-primary-700: #5B21B6;
+  --color-heading: #FFFFFF;
+  --color-body: #CBD5E1;
+  --color-accent: #A78BFA;
+}
+
+.theme-purple-amethyst {
+  /* Amethyst Fade gradient */
+  --color-bg: transparent;
+  --color-card: rgba(255,255,255,0.03);
+  --color-primary: #6D28D9;
+  --color-primary-600: #6D28D9;
+  --color-primary-700: #5B21B6;
+  --color-heading: #F8FAFF;
+  --color-body: #D1D5DB;
+  --color-accent: #C4B5FD;
+  background-image: linear-gradient(135deg, #1E1B4B 0%, #3B0764 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.theme-purple-soft {
+  /* Soft Lavender Dark */
+  --color-bg: #1E1B24;
+  --color-card: #16151a;
+  --color-primary: #6D28D9;
+  --color-primary-600: #6D28D9;
+  --color-heading: #F8FAFF;
+  --color-body: #BFC6CF;
+  --color-accent: #9F7AEA;
+}
+
+@layer components {
+  .btn-primary {
+    background-image: linear-gradient(90deg, #4F46E5 0%, #2563EB 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+    transition: transform .08s ease, box-shadow .12s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.12);
+  }
+  .btn-secondary {
+    @apply border border-slate-300 bg-white px-4 py-2 rounded-lg font-medium hover:bg-slate-50 transition;
+  }
+  .card {
+    background: var(--color-card);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 4px rgba(2,6,23,0.06);
+    border: 1px solid rgba(15,23,42,0.04);
+    padding: 1.25rem;
+  }
+  .input {
+    @apply w-full border border-slate-200 rounded-lg px-3 py-2 outline-none;
+    transition: box-shadow .12s ease, border-color .12s ease;
+  }
+  .input:focus {
+    border-color: var(--color-primary-600);
+    box-shadow: 0 0 0 4px rgba(79,70,229,0.06);
+  }
+  /* Glassmorphism utility for AI suggestion cards */
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+}
