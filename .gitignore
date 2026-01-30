@@ -1,6 +1,7 @@
 ﻿node_modules/
 __pycache__/
-.env
+.env.example
+.env.local
 venv/
 .next/
 postgres_data/
