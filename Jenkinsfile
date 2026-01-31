@@ -8,6 +8,7 @@ pipeline {
         FRONTEND_IMAGE = "${DOCKER_HUB_USER}/ai-counsellor-frontend:latest"
         // Use the ID of the credentials you created in Jenkins
         DOCKER_HUB_CREDS = credentials('docker-hub-creds')
+        GEMINI_KEY = credentials('GEMINI_API_KEY')
     }
 
     stages {
@@ -47,7 +48,9 @@ pipeline {
                     // --build is skipped because we use the images we just pushed
                     // We pull latest images first to ensure we aren't using old local cache
                     sh "docker-compose pull"
-                    sh "docker-compose up -d"
+                    
+                    // This makes the GEMINI_API_KEY available to docker-compose.yml
+                    sh "GEMINI_API_KEY=${GEMINI_KEY} docker-compose up -d"
                 }
             }
         }

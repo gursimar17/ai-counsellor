@@ -17,6 +17,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}  # This tells Docker to look at the system environment
       - DATABASE_URL=postgresql://postgres:password@db:5432/ai_counsellor
     depends_on:
       - db
