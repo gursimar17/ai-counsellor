@@ -5,3 +5,4 @@ __pycache__/
 venv/
 .next/
 postgres_data/
+.env

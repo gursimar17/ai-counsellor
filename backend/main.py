@@ -17,9 +17,19 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="AI Counsellor API", version="0.1.0", lifespan=lifespan)
+
+# Build a safe list of allowed origins for CORS
+origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+if hasattr(settings, "cors_origins") and settings.cors_origins:
+    origins.extend([origin.strip() for origin in settings.cors_origins.split(",") if origin.strip()])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins.split(",") if settings.cors_origins else ["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
