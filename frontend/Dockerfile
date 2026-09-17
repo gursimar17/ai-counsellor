@@ -1,5 +1,4 @@
-# frontend/Dockerfile
-FROM node:20-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -8,5 +7,11 @@ RUN npm install
 
 COPY . .
 
-# Next.js development mode
-CMD ["npm", "run", "dev"]
+# Accept build argument from Docker Compose and expose it to Next.js build step
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
+RUN npm run build
+
+EXPOSE 3000
+CMD ["npm", "start"]

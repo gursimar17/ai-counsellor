@@ -68,10 +68,9 @@ export default function ApplicationsPage() {
   };
 
   const todosForSelected = () => {
-    if (!data || !selectedId) return [] as typeof data.todos;
-    return data.todos.filter((t) => t.shortlist_id === selectedId);
-  };
-
+  if (!data || !selectedId) return [];
+  return data.todos.filter((t) => t.shortlist_id === selectedId);
+};
   if (authLoading || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
